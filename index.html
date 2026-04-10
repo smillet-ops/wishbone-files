@@ -3,50 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shelly Millet | The Wishbone Files</title>
+    <title>The Wishbone Files | Operator & Architect</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="station-container">
-        <nav class="sidebar">
-            <div class="brand">🦴 The Wishbone Files</div>
-            <button class="tab-btn active" onclick="showTab('prep')">[ PREP ]</button>
-            <button class="tab-btn" onclick="showTab('service')">[ SERVICE ]</button>
-            <button class="tab-btn" onclick="showTab('scraps')">[ SCRAPS ]</button>
-            <button class="tab-btn" onclick="showTab('archive')">[ ARCHIVE ]</button>
-            
-            <div class="mode-toggle">
-                <label class="switch">
-                    <input type="checkbox" id="viewToggle" onclick="toggleMode()">
-                    <span class="slider"></span>
-                </label>
-                <span id="mode-label">WISH MODE</span>
+    <div class="landing-container">
+        <div id="wish-panel" class="panel wish active" onclick="activate('wish')">
+            <div class="content">
+                <h2>THE WISH</h2>
+                <p class="hook">Align your life. Elevate your work.</p>
+                <div class="product-info">
+                    <p class="audience-tag">For the **Sovereign Human** ready to build.</p>
+                    <h3>Build Your Own Digital Home</h3>
+                    <p class="desc">The v1.0 Blueprint for surviving the AI disruption.</p>
+                    <a href="YOUR_SAMCART_WISH_LINK" class="cta-btn">Get the E-book ($47)</a>
+                </div>
             </div>
-        </nav>
+        </div>
 
-        <main class="work-surface">
-            <section id="prep" class="tab-content active">
-                <h1>Digital Mise-en-place</h1>
-                <p class="pitch">I am an Operator & Concierge AI Architect. I help Sovereign Humans get their station in order before the first seed is planted.</p>
-                <div class="offer-card">
-                    <h3>The Blueprint v1.0</h3>
-                    <p>Build your own Digital Home. $47</p>
+        <div id="bones-panel" class="panel bones" onclick="activate('bones')">
+            <div class="content">
+                <h2>THE BONES</h2>
+                <p class="hook">Architect your backend. Own your legacy.</p>
+                <div class="product-info">
+                    <p class="audience-tag">For the **Legacy Operator** ready to scale.</p>
+                    <h3>Custom Digital Home Set Up & Launch</h3>
+                    <p class="desc">Concierge architecture for those who need to stay relevant.</p>
+                    <a href="YOUR_SAMCART_BONES_LINK" class="cta-btn">Hire the Architect ($1,500)</a>
                 </div>
-            </section>
+            </div>
+        </div>
+    </div>
 
-            <section id="service" class="tab-content">
-                <h1>Concierge AI Architecture</h1>
-                <p>I build the backend. You own the legacy.</p>
-                <div class="offer-card">
-                    <h3>Full Custom Stand-up</h3>
-                    <p>Strategic architecture & launch. $1,500</p>
-                </div>
-            </section>
+    <div class="backstory-anchor" onclick="toggleBackstory()">
+        <span class="icon">🦴</span> THE BACKSTORY
+    </div>
 
-            <section id="scraps" class="tab-content"><h1>Follow Spot Project</h1><p>Curiosity in the wings...</p></section>
-            <section id="archive" class="tab-content"><h1>Shaking My Angels</h1><p>Breaking the silence...</p></section>
-        </main>
+    <div id="backstory-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleBackstory()">&times;</span>
+            <h1>The Wishbone Files</h1>
+            <p class="sub-head">Operator & Concierge AI Architect</p>
+            <hr>
+            <p>I spent 30 years in the <strong>Hidden Work</strong>—the parts of life that don't show up on a spreadsheet. I’ve been in the cab of an OTR truck, the foaling stalls at Sagamore Farm, and the high-pressure world of IT systems. I am an <strong>Operator</strong>.</p>
+            <p>I am also the first-generation survivor of a "Hidden Child." My father survived WWII through silence; I am building this architecture to break that silence. Every system tells a story. I make the invisible visible.</p>
+            <p>I live in the gap between the disruption and the utopia. I build the infrastructure so that humans don't get left behind in the AI arms race. If you aren't obsessed with your life, change the architecture.</p>
+        </div>
     </div>
 
     <script src="script.js"></script>

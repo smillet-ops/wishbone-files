@@ -1,23 +1,15 @@
-function showTab(tabId) {
-    // Hide all contents
-    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+function activate(panelId) {
+    document.getElementById('wish-panel').classList.remove('active');
+    document.getElementById('bones-panel').classList.remove('active');
     
-    // Show selected
-    document.getElementById(tabId).classList.add('active');
-    event.currentTarget.classList.add('active');
+    document.getElementById(panelId + '-panel').classList.add('active');
 }
 
-function toggleMode() {
-    const isChecked = document.getElementById('viewToggle').checked;
-    const body = document.body;
-    const label = document.getElementById('mode-label');
-    
-    if(isChecked) {
-        body.setAttribute('data-mode', 'bone');
-        label.innerText = "BONE MODE";
+function toggleBackstory() {
+    const modal = document.getElementById('backstory-modal');
+    if (modal.style.display === "block") {
+        modal.style.display = "none";
     } else {
-        body.removeAttribute('data-mode');
-        label.innerText = "WISH MODE";
+        modal.style.display = "block";
     }
 }

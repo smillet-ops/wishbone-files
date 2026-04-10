@@ -1,60 +1,117 @@
 :root {
-    --bg: #fdfaf6; /* Warm Paper */
-    --text: #2c2c2c;
-    --accent: #d35400; /* Gettysburg Orange */
-    --border: #e0e0e0;
-    --font-main: 'Georgia', serif;
+    --transition-speed: 0.6s;
+    --wish-bg: #fdfaf6;
+    --wish-accent: #d35400; /* Gettysburg Orange */
+    --wish-text: #2c2c2c;
+    --bones-bg: #0d0f14;
+    --bones-accent: #00ff41; /* Terminal Green */
+    --bones-text: #a9b1d6;
 }
 
-/* Bone Mode Overrides */
-[data-mode="bone"] {
-    --bg: #0f111a; /* Dark Terminal */
-    --text: #a9b1d6;
-    --accent: #7aa2f7; /* Blueprint Blue */
-    --border: #232635;
-    --font-main: 'Courier New', monospace;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
 }
 
-body {
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: var(--font-main);
-    transition: all 0.4s ease;
-    margin: 0;
-}
+/* --- Panels --- */
+.landing-container { display: flex; height: 100vh; width: 100vw; }
 
-.station-container {
-    display: flex;
-    height: 100vh;
-}
-
-.sidebar {
-    width: 250px;
-    border-right: 1px solid var(--border);
-    padding: 2rem;
+.panel {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-}
-
-.tab-btn {
-    background: none;
-    border: 1px solid transparent;
-    color: var(--text);
-    text-align: left;
-    padding: 0.8rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    font-family: inherit;
-    font-size: 1rem;
+    position: relative;
 }
 
-.tab-btn.active {
-    border-color: var(--accent);
-    color: var(--accent);
+.panel.wish { background-color: var(--wish-bg); color: var(--wish-text); font-family: 'Georgia', serif; }
+.panel.bones { background-color: var(--bones-bg); color: var(--bones-text); font-family: 'Courier New', monospace; }
+
+.panel.active { flex: 4; cursor: default; }
+.panel:not(.active) { opacity: 0.4; filter: grayscale(100%); }
+
+/* --- Content --- */
+h2 { font-size: 3.5rem; letter-spacing: 4px; margin-bottom: 0.5rem; }
+.hook { font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem; }
+.audience-tag { font-weight: bold; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+
+.product-info {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease 0.3s;
+}
+
+.panel.active .product-info { max-height: 500px; opacity: 1; }
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2.5rem;
+    text-decoration: none;
     font-weight: bold;
+    border: 2px solid;
+    transition: 0.3s;
 }
 
-.tab-content { display: none; padding: 4rem; max-width: 800px; }
-.tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+.wish .cta-btn { border-color: var(--wish-accent); color: var(--wish-accent); }
+.wish .cta-btn:hover { background: var(--wish-accent); color: white; }
+.bones .cta-btn { border-color: var(--bones-accent); color: var(--bones-accent); }
+.bones .cta-btn:hover { background: var(--bones-accent); color: black; }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* --- Backstory Anchor --- */
+.backstory-anchor {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    z-index: 10;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* --- Modal/Slide-up --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    color: #1a1a1a;
+    margin: 5% auto;
+    padding: 3rem;
+    width: 80%;
+    max-width: 700px;
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+}
+
+.modal-content h1 { font-family: sans-serif; letter-spacing: 2px; }
+.sub-head { color: #666; margin-bottom: 1rem; }
+.close { float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+
+@media (max-width: 768px) {
+    .landing-container { flex-direction: column; }
+    .panel.active { flex: 6; }
+}
