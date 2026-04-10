@@ -1,5 +1,5 @@
 # 🦴 The Wishbone Files
-**Founder:** Shelly Millet | Operator & Architect
+**Founder:** Shelly Millet | Builder & Architect
 
 ## The Vision
 Every system tells a story. I make the invisible visible. The Wishbone Files is a living system of record designed to help humans reclaim their intelligence in an AI-driven world.
