@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelly Millet | The Wishbone Files</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="station-container">
+        <nav class="sidebar">
+            <div class="brand">🦴 The Wishbone Files</div>
+            <button class="tab-btn active" onclick="showTab('prep')">[ PREP ]</button>
+            <button class="tab-btn" onclick="showTab('service')">[ SERVICE ]</button>
+            <button class="tab-btn" onclick="showTab('scraps')">[ SCRAPS ]</button>
+            <button class="tab-btn" onclick="showTab('archive')">[ ARCHIVE ]</button>
+            
+            <div class="mode-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="viewToggle" onclick="toggleMode()">
+                    <span class="slider"></span>
+                </label>
+                <span id="mode-label">WISH MODE</span>
+            </div>
+        </nav>
+
+        <main class="work-surface">
+            <section id="prep" class="tab-content active">
+                <h1>Digital Mise-en-place</h1>
+                <p class="pitch">I am an Operator & Concierge AI Architect. I help Sovereign Humans get their station in order before the first seed is planted.</p>
+                <div class="offer-card">
+                    <h3>The Blueprint v1.0</h3>
+                    <p>Build your own Digital Home. $47</p>
+                </div>
+            </section>
+
+            <section id="service" class="tab-content">
+                <h1>Concierge AI Architecture</h1>
+                <p>I build the backend. You own the legacy.</p>
+                <div class="offer-card">
+                    <h3>Full Custom Stand-up</h3>
+                    <p>Strategic architecture & launch. $1,500</p>
+                </div>
+            </section>
+
+            <section id="scraps" class="tab-content"><h1>Follow Spot Project</h1><p>Curiosity in the wings...</p></section>
+            <section id="archive" class="tab-content"><h1>Shaking My Angels</h1><p>Breaking the silence...</p></section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
